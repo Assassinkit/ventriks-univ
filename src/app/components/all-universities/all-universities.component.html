@@ -1,0 +1,54 @@
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <mat-form-field appearance="standard">
+                <mat-label>Filter</mat-label>
+                <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
+            </mat-form-field>
+            
+            <div class="mat-elevation-z8">
+                <table mat-table [dataSource]="universities" matSort>
+            
+                    <!-- Name Column -->
+                    <ng-container matColumnDef="name">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
+                        <td mat-cell *matCellDef="let row" (click)="goToUnivInfoPage(row)"> {{row.name}} </td>
+                    </ng-container>
+            
+                    <!-- Country Column -->
+                    <ng-container matColumnDef="country">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Country </th>
+                        <td mat-cell *matCellDef="let row"> {{row.country}} </td>
+                    </ng-container>
+
+                    <!-- Domain Column -->
+                    <ng-container matColumnDef="domain">
+                        <th mat-header-cell *matHeaderCellDef> Domains </th>
+                        <td mat-cell *matCellDef="let row">
+                            <span *ngFor="let domain of row.domains">{{ domain }}</span>
+                        </td>
+                    </ng-container>
+
+                    <!-- Web Pages Column -->
+                    <ng-container matColumnDef="webpage">
+                        <th mat-header-cell *matHeaderCellDef> Web Pages </th>
+                        <td mat-cell *matCellDef="let row">
+                            <span *ngFor="let wp of row.web_pages">{{ wp }}</span>
+                        </td>
+                    </ng-container>
+            
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            
+                    <!-- Row shown when there is no matching data. -->
+                    <tr class="mat-row" *matNoDataRow>
+                        <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+                    </tr>
+                </table>
+            
+                <mat-paginator showFirstLastButtons [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users">
+                </mat-paginator>
+            </div>
+        </div>
+    </div>
+</div>

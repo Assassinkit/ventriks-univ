@@ -1,0 +1,35 @@
+<div class="container">
+    <div class="row pt-3">
+        <div class="col-4">
+            <button mat-stroked-button [routerLink]="'/home'">Back</button>
+        </div>
+        <div class="col-4">
+            <mat-card class="example-card">
+                <mat-card-header>
+                    <div mat-card-avatar class="example-header-image"></div>
+                    <mat-card-title>{{ universityInfo?.name }}</mat-card-title>
+                    <mat-card-subtitle>{{ universityInfo?.country }} ({{universityInfo?.alpha_two_code}}) </mat-card-subtitle>
+                </mat-card-header>
+                <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
+                <mat-card-content>
+
+                    <h2>Domains</h2>
+                    <div *ngFor="let domain of universityInfo?.domains">
+                        <p>
+                        {{ domain }}
+                        </p>
+                    </div>
+
+                    <h2>Web Pages</h2>
+                    <div *ngFor="let page of universityInfo?.web_pages">
+                        <p>
+                            <a [href]="page" target="_blank">{{ page }}</a>
+                        </p>
+                    </div>
+
+                </mat-card-content>
+            </mat-card>
+        </div>
+        <div class="col-4"></div>
+    </div>
+</div>
