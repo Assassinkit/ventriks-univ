@@ -12,18 +12,18 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 ## Build and Setup
 
-  # Clone project
+    **Clone project**
     https://github.com/Assassinkit/ventriks-univ.git
 
-  # Install Angular CLI
+    **Install Angular CLI**
     npm install -g @angular/cli
 
-  # Install the packages with npm
+    **Install the packages with npm**
     npm install
 
-  # Start the app with npm
+    **Start the app with npm**
     npm start
-  # Or use ng
+    **Or use ng**
     ng serve 
 
 
